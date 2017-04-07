@@ -65,9 +65,27 @@ password | character varying(100) | not null
 
 #### Database (To run the database locally)
 
+##### Create local database
+ 
+ - Ensure PSQL is running.  You will need to find PSQL in applications folder
+ 
+ - Use your terminal and 'cd' into the project that contains the database build script 
+ 
+ - Open a new tab in your terminal (CMD+T) then run PSQL by typing 'psql;'
+ 
+ - To create a database, type: 'CREATE DATABASE {databaseNameWithoutCurlys};'
+ 
+ - Go into this database by typing: '\c {databaseNameWithoutCurlys};'
+ 
+ - Run the build script to create your tables: '\i ./database/db_buildscript.sql;' (your route to the script may be different) 
+ 
+ - Test that your tables are there with '\l' to list all tables in this database
+ 
+##### Create config.env file to access the database you just created
+ 
  - Create a `config.env` file in the root of the project
 
- - Add the `DATABASE_URL` variable: DATABASE_URL = postgres://{usernameHereWithoutCurlys}@localhost:5432/lmao_jokes
+ - Add the `DATABASE_URL` variable: DATABASE_URL = postgres://{usernameHereWithoutCurlys}@localhost:5432/{databaseNameWithoutCurlys}
 
 #### Run locally
 
